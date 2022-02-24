@@ -1,2 +1,6 @@
-*
-!*.pas
+**/.idea
+*.exe
+*.o
+*.err
+*.out
+*.bak
