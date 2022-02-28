@@ -26,7 +26,11 @@ BEGIN {Second task}
   Lanterns := GetParameterValue('lanterns');
 
   IF Lanterns = '1'
-  THEN WRITELN('The British are coming by land.')
+  THEN 
+    WRITELN('The British are coming by land.')
   ELSE IF Lanterns = '2'
-    THEN WRITELN('The British are coming by sea.')
+    THEN 
+      WRITELN('The British are coming by sea.') 
+    ELSE
+      WRITELN('Sarah didnt say')
 END. {Second task}
