@@ -20,4 +20,4 @@ function fixSpaces($text): ?string {
     return $result;
 }
 
-echo fixSpaces($_GET["text"] ?? "Empty text parameter");
+echo fixSpaces($_GET["text"] ?? "");
