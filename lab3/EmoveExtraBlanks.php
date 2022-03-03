@@ -8,6 +8,8 @@ header('Content-type: text/plain');
  * @return string|null
  */
 function fixSpaces($text): ?string {
+    if(strlen($text) === 0)
+        return "Error: Empty string";
     $lastCharacter = "";
     $result = "";
     foreach (str_split($text) as $char) {

@@ -6,9 +6,11 @@ header('Content-type: text/plain');
  * @param $text
  * @return int
  */
-function getPasswordStrength($text): int {
+function getPasswordStrength($text): int|string {
     if (preg_match('/[^a-zA-Z0-9]/', $text))
-        return 'Not valid password. Use only latin letters and digits';
+        return 'Error: Non valid password. Use only latin letters and digits';
+    if(strlen($text) === 0)
+        return "Error: Empty password";
 
     $len = strlen($text);
     $strength = 0;
