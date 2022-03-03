@@ -4,7 +4,7 @@ header('Content-type: text/plain');
 /**
  * Get password strength
  * @param $text
- * @return int
+ * @return int|string
  */
 function getPasswordStrength($text): int|string {
     if (preg_match('/[^a-zA-Z0-9]/', $text))
@@ -18,6 +18,7 @@ function getPasswordStrength($text): int|string {
     $char_amount = 0;
     $UP_char_amount = 0;
     $LOW_char_amount = 0;
+    $RepeatingChars = 0;
 
     $buf = [];
     foreach (str_split($text) as $char) {
@@ -30,7 +31,7 @@ function getPasswordStrength($text): int|string {
         }
     }
 
-    $strength += 4 * $char_amount;
+    $strength += 4 * $len;
     $strength += 4 * $num_amount;
     if($UP_char_amount > 0) $strength += ($len - $UP_char_amount) * 2;
     if($LOW_char_amount > 0) $strength += ($len - $LOW_char_amount) * 2;
@@ -38,8 +39,11 @@ function getPasswordStrength($text): int|string {
     if($num_amount === 0) $strength -= $len;
     if($char_amount === 0) $strength -= $len;
 
-    foreach ($buf as $r) if ($r > 1) $strength -= $r;
+    foreach ($buf as $r) if ($r > 1) $RepeatingChars += $r;
 
+    $strength -= $RepeatingChars;
+
+//    echo ("Num:" . $num_amount . " Chars:" . $char_amount . " UpChars:" . $UP_char_amount . " LowChars:" . $LOW_char_amount . " Rep:" . $RepeatingChars . "\n");
     return $strength;
 }
 echo getPasswordStrength($_GET["password"] ?? "");
