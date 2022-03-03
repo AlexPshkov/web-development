@@ -37,5 +37,4 @@ function getPasswordStrength($text): int {
 
     return $strength;
 }
-
-echo getPasswordStrength($_GET["password "] ?? "");
+echo getPasswordStrength($_GET["password"] ?? "");
