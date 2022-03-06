@@ -1,6 +1,5 @@
 <?php
-
-header('Content-type: text/plain');
+//header('Content-type: text/plain');
 
 /**
  * Trim string

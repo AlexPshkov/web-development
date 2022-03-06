@@ -1,5 +1,5 @@
 <?php
-header('Content-type: text/plain');
+//header('Content-type: text/plain');
 
 class FunctionResult {
     public bool $value = false;
@@ -31,4 +31,4 @@ function checkIdentifierField($text): FunctionResult {
 }
 
 $result = checkIdentifierField($_GET["identifier"] ?? "");
-echo ($result -> value ? "yes" : ("no" . "\n" . $result -> resultComm));
+echo ($result -> value ? "yes" : ("no" . "<br>" . $result -> resultComm));
