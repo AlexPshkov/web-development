@@ -1,9 +1,9 @@
 <?php
-//header('Content-type: text/plain');
+header('Content-type: text/plain');
 
 class FunctionResult {
     public bool $value = false;
-    public string $resultComm = "Empty value";
+    public string $resultComm = "Error: Empty value";
 
     public function init($value, $resultComm = "Ok"): FunctionResult {
         $this -> value = $value;
@@ -31,4 +31,4 @@ function checkIdentifierField($text): FunctionResult {
 }
 
 $result = checkIdentifierField($_GET["identifier"] ?? "");
-echo ($result -> value ? "yes" : ("no" . "<br>" . $result -> resultComm));
+echo ($result -> value ? "yes" : ("no" . "\n" . $result -> resultComm));
