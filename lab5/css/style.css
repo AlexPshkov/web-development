@@ -1,19 +1,23 @@
 /*IMPORT FONTS*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto+Condensed&display=swap');
 
-* {
+*
+{
     padding: 0;
     margin: 0;
 }
 
 /*DEFAULT COLORS*/
-.color-magenta {
+.color-magenta
+{
     color: #EE58B6;
 }
-.color-black {
+.color-black
+{
     color: #000000;
 }
-.color-white {
+.color-white
+{
     color: #FFFFFF;
 }
 
@@ -22,13 +26,15 @@
 /*======================================*/
 /*HEADER*/
 /*=================TOP==================*/
-.top-panel {
+.top-panel
+{
     display: flex;
     justify-content: space-between;
     padding: 33px 120px;
 }
 
-.label {
+.label
+{
     font-family: 'Montserrat', serif;
     font-weight: 700;
     font-size: 31px;
@@ -36,7 +42,8 @@
     letter-spacing: -0.045em;
 }
 
-.top-buttons {
+.top-buttons
+{
     display: flex;
     font-family: 'Montserrat', serif;
     font-weight: 500;
@@ -44,23 +51,27 @@
     line-height: 20px;
 }
 
-.top-buttons > * {
+.top-buttons > *
+{
     padding: 10px 30px;
 }
 
-.top-buttons > *:last-child {
+.top-buttons > *:last-child
+{
     color: white;
     background: #05090C;
     border-radius: 5px;
 }
 
-.top-buttons > *:last-child:hover {
+.top-buttons > *:last-child:hover
+{
     color: white;
     background: #EE58B6;
     border-radius: 5px;
 }
 
-.top-buttons > *:hover {
+.top-buttons > *:hover
+{
     color: white;
     background: #05090C;
     border-radius: 5px;
@@ -68,19 +79,22 @@
 
 
 /*=================LANDING==================*/
-.landing {
+.landing
+{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 732px;
 }
 
-.landing-text {
+.landing-text
+{
     width: 745px;
     height: 139px;
 }
 
-.landing-text h1 {
+.landing-text h3
+{
     font-family: 'Montserrat', serif;
     font-style: normal;
     font-weight: 600;
@@ -88,7 +102,8 @@
     line-height: 122px;
 }
 
-.landing-text h2 {
+.landing-text h4
+{
     font-family: 'Roboto Condensed', serif;
     font-style: normal;
     font-weight: 400;
@@ -99,7 +114,8 @@
     color: rgba(0, 0, 0, 0.7)
 }
 
-.default-button {
+.default-button
+{
     display: flex;
     font-family: 'Montserrat', serif;
     font-style: normal;
@@ -109,21 +125,24 @@
     margin-top: 30px;
 }
 
-.default-button > * {
+.default-button > *
+{
     padding: 19px 83px;
     color: white;
     background: #05090C;
     border-radius: 5px;
 }
 
-.default-button > *:hover {
+.default-button > *:hover
+{
     color: white;
     background: #EE58B6;
     border-radius: 5px;
 }
 /*=================ADVANTAGES PANEL==================*/
 
-.advantage-panel {
+.advantage-panel
+{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,7 +150,8 @@
     background-color: black;
 } 
 
-.advantage-panel > div {
+.advantage-panel > div
+{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -152,7 +172,8 @@
     margin-right: 105px;
 }
 
-.advantage-panel > div:last-child {
+.advantage-panel > div:last-child
+{
     margin-right: 0;
 }
 
@@ -160,25 +181,34 @@
 /*======================================*/
 /*MAIN SECTION*/
 /*=================STATEMENTS==================*/
-.mainSection {
+.mainSection
+{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
-.mainSection-block {
+.mainSection-block
+{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 1136px;
 }
 
-.mainSection-block > div {
+.mainSection-block
+{
+    margin-top: 220px;
+}
+
+.mainSection-block > div
+{
     width: 574px;
 }
 
-.mainSection-block > div h1 {
+.mainSection-block > div h3
+{
     font-family: 'Montserrat', serif;
     font-style: normal;
     font-weight: 500;
@@ -188,7 +218,8 @@
     color: #000000;
 }
 
-.mainSection-block > div h2 {
+.mainSection-block > div h4
+{
     font-family: 'Roboto Condensed', serif;
     font-style: normal;
     font-weight: 400;
@@ -200,7 +231,8 @@
 }
 /*=================TABLE==================*/
 
-.mainSection-table {
+.mainSection-table
+{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -208,7 +240,8 @@
     margin-top: 100px;
 }
 
-.mainSection-table > h1 {
+.mainSection-table > h3
+{
     font-family: 'Montserrat', serif;
     font-style: normal;
     font-weight: 500;
@@ -220,7 +253,8 @@
     color: #000000;
 }
 
-.mainSection-table .contents {
+.mainSection-table .contents
+{
     display: flex;
     flex-direction: row;
     flex-flow: row wrap;
@@ -231,7 +265,8 @@
     gap: 30px;
 }
 
-.mainSection-table .contents > div  {
+.mainSection-table .contents > div
+{
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -244,12 +279,14 @@
     border-radius: 7px;
 }
 
-.mainSection-table .contents > div img  {
+.mainSection-table .contents > div img
+{
     margin-top: 32px;
     margin-left: 40px;
 }
 
-.mainSection-table .contents > div  h1 {
+.mainSection-table .contents > div  h3
+{
     font-family: 'Roboto Condensed', serif;
     font-style: normal;
     font-weight: 400;
@@ -267,7 +304,8 @@
 /*======================================*/
 /*FOOTER*/
 /*======================================*/
-.footer-panel {
+.footer-panel
+{
     display: flex;
     justify-content: center;
     align-items: center;
