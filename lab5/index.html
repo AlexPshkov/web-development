@@ -1,120 +1,139 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>Don`t do it</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <title>Don`t do it</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto+Condensed&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/main-stylesheet.css">
 </head>
-<body>
-  <header>
+<body class="container">
+<header>
 
     <!--TOP PANEL-->
     <div class="top-panel">
-      <h3 class="label">Don`t <span class="color-magenta">do</span> it</h3>
+        <h2 class="top-panel__label">Don`t <span class="color-magenta">do</span> it</h2>
 
-      <div class="top-buttons">
-        <div onclick="location.href = 'https://alexpshkov.ru';">Что будет на курсе?</div>
-        <div onclick="location.href = 'https://alexpshkov.ru';">Вопросы</div>
-        <div onclick="location.href = 'https://alexpshkov.ru';">Автор</div>
-        <div onclick="location.href = 'https://alexpshkov.ru';">Записаться на курс</div>
-      </div>
+        <nav class="top-buttons">
+            <div class="top-buttons__button">Что будет на курсе?</div>
+            <div class="top-buttons__button">Вопросы</div>
+            <div class="top-buttons__button">Автор</div>
+            <div class="top-buttons__button_black">Записаться на курс</div>
+        </nav>
     </div>
 
     <!--LANDING-->
     <div class="landing">
-      <div class="landing-text">
-        <h3>Не <span class="color-magenta"> делай</span> это</h3>
-        <h4>Онлайн-курс для творческих людей, о том, как управлять своим временем</h4>
-        <div class="default-button" onclick="openURL('https://alexpshkov.ru', '_self')"><span>Записаться на курс</span></div>
-      </div>
-      
-      <img src="images/man-picture.svg" alt="Loading image...">
+        <div class="landing__content">
+
+            <h1 class="landing__label">Не <span class="color-magenta"> делай</span> это</h1>
+            <div class="landing__info">Онлайн-курс для творческих людей, о том, как управлять своим временем</div>
+
+            <div class="landing__button_black"><span>Записаться на курс</span></div>
+        </div>
+
+        <img class="landing__man-picture" src="./images/man-picture.svg" alt="Loading image...">
     </div>
 
     <!--ADVANTAGE PANEL-->
     <div class="advantage-panel">
-      <div>
-        <img src="images/advantage-pics/advantage-pic-clock.svg" alt="Loading image...">
-        <div>Для тех, у кого слишком много идей и слишком мало времени</div>
-      </div>
-      <div>
-        <img src="images/advantage-pics/advantage-pic-book.svg" alt="Loading image...">
-        <div>Метод «списка не дел», который позволит успевать и реализовывать</div>
-      </div>
-      <div>
-        <img src="images/advantage-pics/advantage-pic-target.svg" alt="Loading image...">
-        <div>Курс научит творческих людей сосредоточиваться</div>
-      </div>
-    </div>
-  </header>
-
-  <!--MAIN SECTION-->
-  <section>
-    <div class="mainSection">
-
-      <!--MAIN SECTION BLOCKS-->
-      <div class="mainSection-block">
-        <img src="images/mainsection-pics/mainsection-pic-table.svg" alt="Loading image...">
-        <div>
-          <h3>Ты не успеешь</h3>
-          <h4>Всех творческих людей объединяет одна проблема - отсутствие времени на реализацию идей. Как прибавить суткам часы, рассмотрим в нашем курсе.</h4>
+        <div class="advantage-panel__clock">
+            <img class="advantage-panel__picture" src="./images/advantage-pics/advantage-clock-picture.svg"
+                 alt="Loading image...">
+            <p class="advantage-panel__text">Для тех, у кого слишком много идей и слишком мало времени</p>
         </div>
-      </div>
-
-      <div class="mainSection-block">
-        <div>
-          <h3>Опять дедлайн</h3>
-          <h4>В мире, где столько всего интересного, когда же успевать жить?</h4>
+        <div class="advantage-panel__book">
+            <img class="advantage-panel__picture" src="images/advantage-pics/advantage-book-picture.svg"
+                 alt="Loading image...">
+            <p class="advantage-panel__text">Метод «списка не дел», который позволит успевать и реализовывать</p>
         </div>
-        <img src="images/mainsection-pics/mainsection-pic-human.svg" alt="Loading image...">
-      </div>
+        <div class="advantage-panel__target">
+            <img class="advantage-panel__picture" src="images/advantage-pics/advantage-target-picture.svg"
+                 alt="Loading image...">
+            <p class="advantage-panel__text">Курс научит творческих людей сосредоточиваться</p>
+        </div>
     </div>
+</header>
+
+<!--MAIN SECTION-->
+<main class="mainSection">
+
+    <!--MAIN SECTION BLOCKS-->
+    <div class="mainSection-block">
+        <img class="mainSection-block__picture" src="images/mainsection-pics/mainsection-table-picture.svg"
+             alt="Loading image...">
+        <div class="mainSection-block__text-content">
+            <h3 class="mainSection-block__text-label">Ты не успеешь</h3>
+            <p class="mainSection-block__text">Всех творческих людей объединяет одна проблема - отсутствие времени на
+                реализацию идей. Как
+                прибавить суткам часы, рассмотрим в нашем курсе.</p>
+        </div>
+    </div>
+
+    <div class="mainSection-block">
+        <div class="mainSection-block__text-content">
+            <h3 class="mainSection-block__text-label">Опять дедлайн</h3>
+            <p class="mainSection-block__text">В мире, где столько всего интересного, когда же успевать жить?</p>
+        </div>
+        <img class="mainSection-block__picture" src="images/mainsection-pics/mainsection-human-picture.svg"
+             alt="Loading image...">
+
+    </div>
+
 
     <!--TABLE-->
     <div class="mainSection-table">
-      <h3>На курсе ты <span class="color-magenta">сможешь</span></h3>
-      <div class="contents">
-        <div>
-          <img src="images/mainsection-pics/table/mainsection-table-pic-one.svg" alt="Loading image...">
-          <h3>Понять, что нужно делать, а что делать не стоит.</h3>
-        </div>
+        <h3 class="mainSection-table__label">На курсе ты <span class="color-magenta">сможешь</span></h3>
+        <div class="table-contents">
+            <div class="table-contents__cell">
+                <img class="table-contents__image" src="./images/mainsection-pics/table/mainsection-table-pic-one.svg"
+                     alt="Loading image...">
+                <p class="table-contents__text">Понять, что нужно делать, а что делать не стоит.</p>
+            </div>
 
-        <div>
-          <img src="images/mainsection-pics/table/mainsection-table-pic-two.svg" alt="Loading image...">
-          <h3>Перестать себя искусственно ограничивать.</h3>
-        </div>
+            <div class="table-contents__cell">
+                <img class="table-contents__image" src="./images/mainsection-pics/table/mainsection-table-pic-two.svg"
+                     alt="Loading image...">
+                <p class="table-contents__text">Перестать себя искусственно ограничивать.</p>
+            </div>
 
-        <div>
-          <img src="images/mainsection-pics/table/mainsection-table-pic-three.svg" alt="Loading image...">
-          <h3>Определить сильные стороны и начать использовать слабые.</h3>
-        </div>
+            <div class="table-contents__cell">
+                <img class="table-contents__image" src="./images/mainsection-pics/table/mainsection-table-pic-three.svg"
+                     alt="Loading image...">
+                <p class="table-contents__text">Определить сильные стороны и начать использовать слабые.</p>
+            </div>
 
-        <div>
-          <img src="images/mainsection-pics/table/mainsection-table-pic-four.svg" alt="Loading image...">
-          <h3>Научиться достигать любой цели в 3 понятных шага.</h3>
-        </div>
+            <div class="table-contents__cell">
+                <img class="table-contents__image" src="./images/mainsection-pics/table/mainsection-table-pic-four.svg"
+                     alt="Loading image...">
+                <p class="table-contents__text">Научиться достигать любой цели в 3 понятных шага.</p>
+            </div>
 
-        <div>
-          <img src="images/mainsection-pics/table/mainsection-table-pic-five.svg" alt="Loading image...">
-          <h3>Сотрудничать эффективно и с правильными людьми.</h3>
-        </div>
+            <div class="table-contents__cell">
+                <img class="table-contents__image" src="./images/mainsection-pics/table/mainsection-table-pic-five.svg"
+                     alt="Loading image...">
+                <p class="table-contents__text">Сотрудничать эффективно и с правильными людьми.</p>
+            </div>
 
-        <div>
-          <img src="images/mainsection-pics/table/mainsection-table-pic-six.svg" alt="Loading image...">
-          <h3>Оптимизировать общение с клиентами и проведение совещаний.</h3>
+            <div class="table-contents__cell">
+                <img class="table-contents__image" src="./images/mainsection-pics/table/mainsection-table-pic-six.svg"
+                     alt="Loading image...">
+                <p class="table-contents__text">Оптимизировать общение с клиентами и проведение совещаний.</p>
+            </div>
         </div>
-      </div>
     </div>
 
-  </section>
+</main>
 
-  <!--FOOTER-->
-  <footer>
+<!--FOOTER-->
+<footer>
     <div class="footer-panel">
-      <h3 class="label color-white">Don`t <span class="color-magenta">do</span> it</h3>
+        <h2 class="footer-panel__label">Don`t <span class="color-magenta">do</span> it</h2>
     </div>
-  </footer>
+</footer>
 
 </body>
 </html>

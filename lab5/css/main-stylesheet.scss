@@ -1,0 +1,227 @@
+//DEFAULT COLORS
+$defaultColor-magenta: #EE58B6;
+$defaultColor-white: #FFFFFF;
+$defaultColor-black: #000000;
+$defaultColor-dark: #05090C;
+
+
+//MIXINS
+@mixin useFont($font-name : 'Montserrat', $font-weight : 700, $font-size : 31px, $line-height : 37.69px, $color : $defaultColor-black) {
+    font-family: $font-name, sans-serif;
+    font-style: normal;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+}
+
+@mixin useFlex($justify-content : center, $align-items : center, $flex-direction : row) {
+    display: flex;
+    justify-content: $justify-content;
+    @if ($align-items != none) {
+        align-items: $align-items;
+    }
+    flex-direction: $flex-direction;
+    flex-shrink: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.color-magenta {
+    color: $defaultColor-magenta;
+}
+
+.container {
+    @include useFlex($flex-direction : column);
+}
+
+//TOP
+//===============================================================
+.top-panel {
+    @include useFlex($justify-content : space-between);
+    height: 55px;
+    margin: 30px 120px;
+}
+
+.top-panel__label {
+    @include useFont();
+    letter-spacing: -0.045em;
+}
+
+.top-buttons {
+    @include useFlex()
+}
+
+.top-buttons__button {
+    @include useFont($font-weight : 600, $font-size : 16px, $line-height : 16px);
+    padding: 20px 40px;
+    border-radius: 4.59px;
+}
+
+.top-buttons__button:hover {
+    color: $defaultColor-white;
+    background: $defaultColor-dark;
+}
+
+.top-buttons__button_black {
+    @extend .top-buttons__button;
+    background-color: $defaultColor-dark;
+    color: $defaultColor-white;
+    margin-left: 12px;
+}
+
+.top-buttons__button_black:hover {
+    background-color: $defaultColor-magenta;
+}
+//===============================================================
+
+
+//Landing
+//===============================================================
+.landing {
+    @include useFlex();
+    margin-top: 43px;
+    height: 732px;
+}
+
+.landing__content {
+    @include useFlex($flex-direction : column, $justify-content: flex-start, $align-items: flex-start);
+}
+
+.landing__man-picture {
+    width: 835px;
+}
+
+.landing__label {
+    @include useFont($font-weight : 600, $font-size : 100px, $line-height : 122px);
+    width: 745px;
+    height: 139px;
+}
+
+.landing__info {
+    $normal-color : rgba(0, 0, 0, 0.7);
+    @include useFont($font-name : 'Roboto Condensed', $font-weight : 400, $font-size : 26px, $line-height : 31px, $color : $normal-color);
+    width: 545px;
+}
+
+.landing__button_black {
+    @include useFont($font-weight : 600, $font-size : 16px, $line-height : 16px, $color: $defaultColor-white);
+    margin-top: 46px;
+    padding: 18px 81px;
+    border-radius: 4.59px;
+    background: $defaultColor-dark;
+}
+
+.landing__button_black:hover {
+    background: $defaultColor-magenta;
+}
+//===============================================================
+
+
+//Advantage panel
+//===============================================================
+.advantage-panel {
+    @include useFlex();
+    background-color: $defaultColor-black;
+    height: 398px;
+    width: 1920px;
+}
+
+.advantage-panel > * {
+    @include useFlex($flex-direction : column);
+    text-align: center;
+    margin-left: 115px;
+    width: 337px;
+}
+
+.advantage-panel__text {
+    @include useFont($font-name : 'Roboto Condensed', $font-weight: 400, $font-size: 22px, $line-height: 26px, $color: $defaultColor-white);
+    margin-top: 20px;
+}
+//===============================================================
+
+//Main
+//===============================================================
+.mainSection {
+    margin-top: 72px;
+}
+
+.mainSection-block {
+    @include useFlex();
+    margin-top: 138px;
+    gap: 104px
+}
+
+.mainSection-block__text-content {
+    @include useFlex($align-items : flex-start, $flex-direction : column);
+    width: 574px;
+}
+
+.mainSection-block__text-label {
+    @include useFont($font-name: 'Montserrat', $font-weight: 500, $font-size: 48px,$line-height: 61px);
+}
+
+.mainSection-block__text {
+    $normal-color : rgba(0, 0, 0, 0.7);
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 18px,$line-height: 24px, $color : $normal-color);
+    margin-top: 26px;
+}
+//===============================================================
+
+
+//Table
+//===============================================================
+.mainSection-table {
+    @include useFlex($flex-direction : column);
+    margin-top: 98px;
+    width: 1135px;
+}
+
+.table-contents {
+    @include useFlex($flex-direction : row);
+    margin-top: 60px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.mainSection-table__label {
+    @include useFont($font-weight: 500, $font-size: 48px, $line-height: 59px);
+}
+
+.table-contents__cell {
+    width: 358px;
+    height: 190px;
+    background: $defaultColor-black;
+    border-radius: 7.35723px;
+}
+
+.table-contents__image {
+    margin-top: 32px;
+    margin-left: 39px;
+}
+
+.table-contents__text {
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 18px, $line-height: 21px, $color: $defaultColor-white);
+    margin-top: 20px;
+    margin-left: 39px;
+}
+//===============================================================
+
+//Footer
+//===============================================================
+.footer-panel {
+    @include useFlex();
+    background: $defaultColor-black;
+    margin-top: 288px;
+    height: 108px;
+    width: 1920px;
+}
+
+.footer-panel__label {
+    @include useFont($font-weight: 700, $font-size: 30.8354px,$line-height: 38px, $color : $defaultColor-white);
+    letter-spacing: -0.045em;
+}
+//===============================================================
