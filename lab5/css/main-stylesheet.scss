@@ -32,10 +32,6 @@ $defaultColor-dark: #05090C;
     color: $defaultColor-magenta;
 }
 
-.container {
-    max-width: 1920px;
-}
-
 //TOP
 //===============================================================
 .top-panel {
@@ -68,7 +64,7 @@ $defaultColor-dark: #05090C;
     @extend .top-buttons__button;
     background-color: $defaultColor-dark;
     color: $defaultColor-white;
-    margin-left: 12px;
+    margin-left: 42px;
 }
 
 .top-buttons__button_black:hover {
@@ -81,13 +77,14 @@ $defaultColor-dark: #05090C;
 //===============================================================
 .landing {
     @include useFlex();
-    margin-top: 43px;
     height: 732px;
 }
 
 .landing__content {
     @include useFlex($flex-direction : column, $justify-content: flex-start, $align-items: flex-start);
     flex-wrap: wrap;
+    margin-right: 35px;
+    margin-bottom: 45px;
 }
 
 .landing__label {
@@ -140,13 +137,13 @@ $defaultColor-dark: #05090C;
 //Main
 //===============================================================
 .mainSection {
-    margin-top: 72px;
+    margin-top: 205px;
 }
 
 .mainSection-block {
     @include useFlex();
-    margin-top: 138px;
-    gap: 104px
+    margin-top: 75px;
+    gap: 125px;
 }
 
 .mainSection-block__text-content {
@@ -170,7 +167,7 @@ $defaultColor-dark: #05090C;
 //===============================================================
 .mainSection-table {
     @include useFlex($flex-direction : column);
-    margin-top: 98px;
+    margin-top: 143px;
 }
 
 .table-contents {
