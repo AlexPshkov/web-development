@@ -18,9 +18,7 @@ $defaultColor-dark: #05090C;
 @mixin useFlex($justify-content : center, $align-items : center, $flex-direction : row) {
     display: flex;
     justify-content: $justify-content;
-    @if ($align-items != none) {
-        align-items: $align-items;
-    }
+    align-items: $align-items;
     flex-direction: $flex-direction;
     flex-shrink: 0;
 }
@@ -35,7 +33,7 @@ $defaultColor-dark: #05090C;
 }
 
 .container {
-    @include useFlex($flex-direction : column);
+    max-width: 1920px;
 }
 
 //TOP
@@ -89,10 +87,7 @@ $defaultColor-dark: #05090C;
 
 .landing__content {
     @include useFlex($flex-direction : column, $justify-content: flex-start, $align-items: flex-start);
-}
-
-.landing__man-picture {
-    width: 835px;
+    flex-wrap: wrap;
 }
 
 .landing__label {
@@ -127,7 +122,6 @@ $defaultColor-dark: #05090C;
     @include useFlex();
     background-color: $defaultColor-black;
     height: 398px;
-    width: 1920px;
 }
 
 .advantage-panel > * {
@@ -177,11 +171,11 @@ $defaultColor-dark: #05090C;
 .mainSection-table {
     @include useFlex($flex-direction : column);
     margin-top: 98px;
-    width: 1135px;
 }
 
 .table-contents {
     @include useFlex($flex-direction : row);
+    max-width: 1135px;
     margin-top: 60px;
     flex-wrap: wrap;
     gap: 30px;
@@ -217,7 +211,6 @@ $defaultColor-dark: #05090C;
     background: $defaultColor-black;
     margin-top: 288px;
     height: 108px;
-    width: 1920px;
 }
 
 .footer-panel__label {
