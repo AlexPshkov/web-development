@@ -1,3 +1,15 @@
+<?php
+const userFilesDirPath = "./userFiles/";
+
+if(isset($_POST['email'])) {
+    $text = "";
+    foreach($_POST as $key => $value) {
+        $text .= $key . ": " . $value . "\n";
+    }
+    file_put_contents(userFilesDirPath . $_POST['email'] . ".txt", $text);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -128,6 +140,31 @@
         </div>
 
     </main>
+
+
+    <!--FORM-->
+    <div class="sign-up-form">
+        <img class="sign-up-form__picture" src="./images/form/form-welcome.svg" alt="Loading image...">
+        <h3 class="sign-up-form__text-label">Записаться на курс</h3>
+        <form method="post">
+            <input class="main-form__field" type="text" name="username" placeholder="Ваше имя" required>
+            <input class="main-form__field" type="email" name="email" placeholder="Email" required>
+            <select class="main-form__selection-field" name="activity" required>
+                <option class="main-form__selection-field__option" hidden disabled selected>Деятельность</option>
+                <option class="main-form__selection-field__option">Программист</option>
+                <option class="main-form__selection-field__option">Дизайнер</option>
+                <option class="main-form__selection-field__option">Маркетолог</option>
+            </select>
+            <div class="main-form__checkBox-field">
+                <input class="main-form__checkBox-field__checkBox" id="user-policy-checkbox" type="checkbox" name="policy">
+                <label class="main-form__checkbox-field__label" for="user-policy-checkbox">Согласен получать информационные материалы о старте курса</label>
+            </div>
+
+            <input class="main-form__submit-button" type="submit" value="Записаться на курс">
+        </form>
+
+    </div>
+
 
     <!--FOOTER-->
     <footer>
