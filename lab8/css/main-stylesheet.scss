@@ -35,10 +35,17 @@ $defaultColor-gray: #999999;
     color: $defaultColor-magenta;
 }
 
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    @import "mobile-stylesheet";
+}
+
 //TOP
 //===============================================================
 .top-panel {
     @include useFlex($justify-content : space-between);
+    flex-wrap: wrap;
+    flex-shrink: 0;
     height: 55px;
     margin: 30px 120px;
 }
@@ -80,6 +87,7 @@ $defaultColor-gray: #999999;
 //===============================================================
 .landing {
     @include useFlex();
+    flex-wrap: wrap-reverse;
     height: 732px;
 }
 
@@ -113,6 +121,10 @@ $defaultColor-gray: #999999;
 .landing__button_black:hover {
     background: $defaultColor-magenta;
 }
+
+.landing__man-picture {
+    max-width: 40.5%;
+}
 //===============================================================
 
 
@@ -120,14 +132,15 @@ $defaultColor-gray: #999999;
 //===============================================================
 .advantage-panel {
     @include useFlex();
+    flex-wrap: wrap;
+    gap: 115px;
     background-color: $defaultColor-black;
-    height: 398px;
+    padding: 115.42px;
 }
 
 .advantage-panel > * {
     @include useFlex($flex-direction : column);
     text-align: center;
-    margin-left: 115px;
     width: 337px;
 }
 
@@ -137,6 +150,7 @@ $defaultColor-gray: #999999;
 }
 //===============================================================
 
+
 //Main
 //===============================================================
 .mainSection {
@@ -145,8 +159,14 @@ $defaultColor-gray: #999999;
 
 .mainSection-block {
     @include useFlex();
+    flex-wrap: wrap;
     margin-top: 75px;
     gap: 125px;
+}
+
+.mainSection-block_reverse {
+    @extend .mainSection-block;
+    flex-wrap: wrap-reverse;
 }
 
 .mainSection-block__text-content {
@@ -163,6 +183,7 @@ $defaultColor-gray: #999999;
     @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 18px,$line-height: 24px, $color : $normal-color);
     margin-top: 26px;
 }
+
 //===============================================================
 
 
@@ -203,7 +224,6 @@ $defaultColor-gray: #999999;
     margin-left: 39px;
 }
 //===============================================================
-
 
 
 //Form
@@ -266,11 +286,11 @@ $defaultColor-gray: #999999;
     height: 22px;
     box-sizing: border-box;
     border-radius: 4px;
-    background-color: #EE58B6;
+    background-color: $defaultColor-magenta;
 }
 
 .main-form__checkBox-field__checkBox:active {
-    background-color: #EE58B6;
+    background-color: $defaultColor-magenta;
 }
 
 .main-form__checkbox-field__label {
@@ -297,6 +317,45 @@ $defaultColor-gray: #999999;
     margin-left: 59px;
     margin-top: 68px;
 }
+
+//CheckBox
+//========================
+.main-form__checkBox-field__checkBox {
+    margin-left: -30px;
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+.main-form__checkBox-field__checkBox + .main-form__checkbox-field__label {
+    @include useFlex();
+}
+
+.main-form__checkBox-field__checkBox + .main-form__checkbox-field__label::before {
+    @include useFlex();
+    content: '';
+    margin-right: 7.68px;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 1.35px solid $defaultColor-gray-white;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.main-form__checkBox-field__checkBox:not(:disabled):not(:checked) + .main-form__checkbox-field__label:hover::before {
+    border-color: $defaultColor-magenta;
+}
+
+.main-form__checkBox-field__checkBox:checked + .main-form__checkbox-field__label::before {
+    border-color: $defaultColor-magenta;
+    background-color: $defaultColor-magenta;
+    background-image: url("../images/form/checkbox-checked-arrow.svg");
+}
+//========================
+
+//TODO styles for dropdown list
+
 //===============================================================
 
 
