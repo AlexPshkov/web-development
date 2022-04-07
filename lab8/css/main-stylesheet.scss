@@ -246,7 +246,7 @@ $defaultColor-gray: #999999;
     height: 307px;
 }
 
-.main-form__field {
+.text-field {
     @include useFont($font-weight : 500, $font-size : 18px, $line-height : 22px, $color : $defaultColor-gray);
     @include useFlex();
     margin-bottom: 20px;
@@ -259,24 +259,24 @@ $defaultColor-gray: #999999;
     padding-left: 28px;
 }
 
-.main-form__selection-field {
-    @extend .main-form__field;
+.selection-field {
+    @extend .text-field;
     appearance: none;
     background: url('../images/form/selection-arrow.svg') no-repeat right;
     background-position-x: 93%;
 }
 
-.main-form__selection-field {
+.selection-field {
     cursor: url('../images/form/cursor.svg'), auto;
 }
 
-.main-form__checkBox-field {
+.checkBox-field {
     @include useFlex();
     margin-top: 35px;
     margin-bottom: 35px;
 }
 
-.main-form__checkBox-field__checkBox {
+.checkBox-field__checkBox {
     border: 1.34888px solid $defaultColor-gray-white;
     width: 22px;
     height: 22px;
@@ -285,16 +285,16 @@ $defaultColor-gray: #999999;
     background-color: $defaultColor-magenta;
 }
 
-.main-form__checkBox-field__checkBox:active {
+.checkBox-field__checkBox:active {
     background-color: $defaultColor-magenta;
 }
 
-.main-form__checkbox-field__label {
+.checkbox-field__label {
     @include useFont($font-name : 'Roboto Condensed', $font-weight : 400, $font-size : 16px, $line-height : 22px, $color : rgba(0, 0, 0, 0.7));
     margin-left: 7.68px;
 }
 
-.main-form__submit-button {
+.submit-button {
     @include useFont($font-weight : 500, $font-size : 18px, $line-height : 22px, $color : $defaultColor-white);
     @include useFlex();
     width: 480px;
@@ -303,7 +303,7 @@ $defaultColor-gray: #999999;
     border-radius: 5.4px;
 }
 
-.main-form__submit-button:hover {
+.submit-button:hover {
     border: $defaultColor-magenta;
     background-color: $defaultColor-magenta;
 }
@@ -316,18 +316,18 @@ $defaultColor-gray: #999999;
 
 //CheckBox
 //========================
-.main-form__checkBox-field__checkBox {
+.checkBox-field__checkBox {
     margin-left: -30px;
     width: 0;
     height: 0;
     z-index: -1;
 }
 
-.main-form__checkBox-field__checkBox + .main-form__checkbox-field__label {
+.checkBox-field__checkBox + .checkbox-field__label {
     @include useFlex();
 }
 
-.main-form__checkBox-field__checkBox + .main-form__checkbox-field__label::before {
+.checkBox-field__checkBox + .checkbox-field__label::before {
     @include useFlex();
     content: '';
     margin-right: 7.68px;
@@ -339,11 +339,11 @@ $defaultColor-gray: #999999;
     background-position: center center;
 }
 
-.main-form__checkBox-field__checkBox:not(:disabled):not(:checked) + .main-form__checkbox-field__label:hover::before {
+.checkBox-field__checkBox:not(:disabled):not(:checked) + .checkbox-field__label:hover::before {
     border-color: $defaultColor-magenta;
 }
 
-.main-form__checkBox-field__checkBox:checked + .main-form__checkbox-field__label::before {
+.checkBox-field__checkBox:checked + .checkbox-field__label::before {
     border-color: $defaultColor-magenta;
     background-color: $defaultColor-magenta;
     background-image: url("../images/form/checkbox-checked-arrow.svg");

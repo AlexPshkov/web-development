@@ -134,19 +134,19 @@
         <img class="sign-up-form__picture" src="./images/form/form-welcome.svg" alt="Loading image...">
         <h3 class="sign-up-form__text-label">Записаться на курс</h3>
         <form method="post" action="fileHandler.php">
-            <input class="main-form__field" type="text" name="username" placeholder="Ваше имя" required>
-            <input class="main-form__field" type="email" name="email" placeholder="Email" required>
-            <select class="main-form__selection-field" name="activity" required>
-                <option class="main-form__selection-field__option" hidden disabled selected>Деятельность</option>
-                <option class="main-form__selection-field__option">Программист</option>
-                <option class="main-form__selection-field__option">Дизайнер</option>
-                <option class="main-form__selection-field__option">Маркетолог</option>
+            <input class="text-field" type="text" name="username" placeholder="Ваше имя" required>
+            <input class="text-field" type="email" name="email" placeholder="Email" required>
+            <select class="selection-field" name="activity" required>
+                <option hidden disabled selected>Деятельность</option>
+                <option>Программист</option>
+                <option>Дизайнер</option>
+                <option>Маркетолог</option>
             </select>
-            <div class="main-form__checkBox-field">
-                <input class="main-form__checkBox-field__checkBox" id="user-policy-checkbox" type="checkbox" name="policy">
-                <label class="main-form__checkbox-field__label" for="user-policy-checkbox">Согласен получать информационные материалы о старте курса</label>
+            <div class="checkBox-field">
+                <input class="checkBox-field__checkBox" id="user-policy-checkbox" type="checkbox" name="policy">
+                <label class="checkbox-field__label" for="user-policy-checkbox">Согласен получать информационные материалы о старте курса</label>
             </div>
-            <input class="main-form__submit-button" type="submit" value="Записаться на курс">
+            <input class="submit-button" type="submit" value="Записаться на курс">
         </form>
     </div>
 
