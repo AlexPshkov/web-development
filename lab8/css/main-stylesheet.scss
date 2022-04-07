@@ -263,11 +263,8 @@ $defaultColor-gray: #999999;
     @extend .text-field;
     appearance: none;
     background: url('../images/form/selection-arrow.svg') no-repeat right;
-    background-position-x: 93%;
-}
-
-.selection-field {
     cursor: url('../images/form/cursor.svg'), auto;
+    background-position-x: 93%;
 }
 
 .checkBox-field {

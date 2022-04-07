@@ -12,7 +12,7 @@ define("isGetDataReceived", isset($_GET['email']));
  * @return array|bool|string
  */
 function getSiteMainForm(): array|bool|string {
-    if(isGetDataReceived) return ""; //TODO Must be uncommented
+//    if(isGetDataReceived) return ""; //TODO Must be uncommented
     return file_get_contents(sitePatternsDirPath . "fileChecker/_fileChecker-form.html");
 }
 
