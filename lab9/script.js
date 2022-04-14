@@ -1,4 +1,8 @@
 // ===============================[Ex 1]=================================
+/**
+ * Check if number is prime
+ * @param number
+ */
 function isPrimeNumber(number) {
     if (number instanceof Array) { //Handle array
         number.forEach(num => isPrimeNumber(num));
@@ -14,72 +18,75 @@ function isPrimeNumber(number) {
 // isPrimeNumber([4, 1, 2, 121]);
 
 
-
 // ===============================[Ex 2]=================================
 const bracketsRegExp = new RegExp(/[()]/g);
-const operationTypeRegExp = new RegExp(/([^(|)\w\d\s])/g);
-const numberSplitRegExp = new RegExp(/(?<=\d)\s+(?=\d)/g);
+const operationTypeRegExp = new RegExp(/[^(|)\w\d\s][\s|(]/g);
+const numberSplitRegExp = new RegExp(/(?<=\d)\s+(?=[^ ]?\d)/g);
+const numbersRegExp = new RegExp(/([^ (]?\d+)\s+.([\d]*)/g);
 
 /**
- * Check if this expression is valid
+ * Get last index of RegEx in string
  * @param stringExpression
- * @returns {false|number|boolean}
+ * @param regEx
+ * @returns {*}
  */
-function isValid(stringExpression) {
-    const openBracketsAmountRegMath = stringExpression.match(/[(]/g);
-    const closeBracketsAmountRegMath = stringExpression.match(/[)]/g);
-    const operationTypeAmountRegMath = stringExpression.match(operationTypeRegExp);
-    const decimalsAmountRegMath = stringExpression.match(/\d/g);
-
-    const openBracketsAmount = openBracketsAmountRegMath === null ? 0 : openBracketsAmountRegMath.length;
-    const closeBracketsAmount = closeBracketsAmountRegMath === null ? 0 : closeBracketsAmountRegMath.length;
-
-    let firstCond =  openBracketsAmount === closeBracketsAmount; //Brackets
-    let secondCond = openBracketsAmount === (operationTypeAmountRegMath === null ? 0 : operationTypeAmountRegMath.length) - 1; //Brackets = operation - 1
-    let thirdCond = (decimalsAmountRegMath === null ? 0 : decimalsAmountRegMath.length) - 1 === (openBracketsAmount * 2);//Brackets * 2 = decimals - 1
-
-    return firstCond && secondCond && thirdCond;
+function getLastIndex(stringExpression, regEx) {
+    const lastOperationTypeMatch = stringExpression.match(regEx).pop();
+    return stringExpression.lastIndexOf(lastOperationTypeMatch);
 }
 
 /**
- * Calc only simple expressions. Such as: (+ 1 6)
- * @param simpleStringExpression
+ * Check if this is a valid expression
+ * @param stringExpression
+ * @returns {boolean}
  */
-function calcSimpleExpression(simpleStringExpression) {
-    const expression = simpleStringExpression.replace(bracketsRegExp, "");
-    const operationTypePosition = expression.search(operationTypeRegExp);
-    const operationType = expression[operationTypePosition];
-    const strValues = expression.substring(operationTypePosition + 1).split(numberSplitRegExp);
+function isValidExpression(stringExpression) {
+    const operationTypeMatches = stringExpression.match(operationTypeRegExp);
+    const decimalTypeMatches = stringExpression.match(/\d/g);
+
+    const operationalTypeAmount = operationTypeMatches === undefined ? 0 : operationTypeMatches.length;
+    const decimalTypeAmount = decimalTypeMatches === undefined ? 0 : decimalTypeMatches.length;
+    return  operationalTypeAmount === decimalTypeAmount - 1;
+}
+
+/**
+ * Calc prefix expression
+ * @param expression
+ * @param checked
+ * @returns {*|string}
+ */
+function calc(expression, checked = false) {
+    if(!checked && !isValidExpression(expression)) return "Error in expression. Please check";
+    const stringExpression = expression.replace(bracketsRegExp, " ");
+    const lastOperationTypePosition = getLastIndex(stringExpression, operationTypeRegExp);
+    const sliceExpression = stringExpression.substring(lastOperationTypePosition);
+    const sliceExpressionMatch = sliceExpression.match(numbersRegExp)[0];
+    const strValues = sliceExpressionMatch.split(numberSplitRegExp);
+    const operationType = stringExpression[lastOperationTypePosition];
     const firstValue = Number.parseInt(strValues[0]);
     const secondValue = Number.parseInt(strValues[1]);
 
+    let result;
     switch (operationType) {
         case "+":
-            return firstValue + secondValue;
+            result = firstValue + secondValue;
+            break;
         case "-":
-            return firstValue - secondValue;
+            result = firstValue - secondValue;
+            break;
         case "*":
-            return firstValue * secondValue;
+            result = firstValue * secondValue;
+            break;
         case "/":
-            return firstValue / secondValue;
+            result = firstValue / secondValue;
+            break;
     }
+
+    const fullStr = stringExpression.substring(lastOperationTypePosition, stringExpression.lastIndexOf(sliceExpressionMatch));
+    const formattedExpression = stringExpression.replaceAll(fullStr + sliceExpressionMatch, result);
+
+    return formattedExpression.match(operationTypeRegExp) ? calc(formattedExpression, true) : formattedExpression;
 }
 
-/**
- * Calc string expression
- * @param stringExpression
- * @param checked
- * @returns {string}
- */
-function calc(stringExpression, checked = false) {
-    if(!checked) if (!isValid(stringExpression)) return "Wrong expression. Example: * (- 5 6) 7"
-    if (stringExpression.match(bracketsRegExp)) {
-        const lastOpenBracketPosition = stringExpression.lastIndexOf("(");
-        const lastCloseBracketPosition = stringExpression.indexOf(")", lastOpenBracketPosition);
-        const bracketExpression = stringExpression.substring(lastOpenBracketPosition, lastCloseBracketPosition + 1);
-        const formattedExpression = stringExpression.replace(bracketExpression, calcSimpleExpression(bracketExpression));
-        return calc(formattedExpression, true);
-    } else return calcSimpleExpression(stringExpression);
-}
 
-// console.log(calc("*(* 5 6) 7"));
+console.log(calc('*(- 5 6) (* (+ -2 -5)  (+    1 1))'));
