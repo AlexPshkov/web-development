@@ -82,11 +82,11 @@ function calc(expression, checked = false) {
             break;
     }
 
-    const fullStr = stringExpression.substring(lastOperationTypePosition, stringExpression.lastIndexOf(sliceExpressionMatch));
+    const fullStr = stringExpression.substring(lastOperationTypePosition, stringExpression.indexOf(sliceExpressionMatch));
     const formattedExpression = stringExpression.replaceAll(fullStr + sliceExpressionMatch, result);
 
     return formattedExpression.match(operationTypeRegExp) ? calc(formattedExpression, true) : formattedExpression;
 }
 
 
-// console.log(calc('*(- 5 6) (* (+ -2 -5)  (+    1 1))'));
+// console.log(calc('*(- 5 6) 7'));
