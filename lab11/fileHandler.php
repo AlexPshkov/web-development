@@ -17,13 +17,11 @@ function getAllUserData(): array {
     foreach(scandir(userFilesDirPath) as $file) {
         $filePath = userFilesDirPath . $file;
         if (!str_contains($filePath, "@")) continue;
-        $box = file_get_contents(sitePatternsDirPath . "userBox.html");
         $userData = getUserData($filePath);
-        $box = str_replace("%username%", $userData["username"], $box);
-        $box = str_replace("%email%", $userData["email"], $box);
-        $box = str_replace("%activity%", $userData["activity"], $box);
-        $box = str_replace("%policy%", $userData["policy"] === "on" ? "Да" : "Нет", $box);
-        $result .= $box;
+        $result .= str_replace(
+            ["%username%", "%email%", "%activity%", "%policy%"],
+            [$userData["username"], $userData["email"], $userData["activity"], $userData["policy"] === "on" ? "Да" : "Нет"],
+            file_get_contents(sitePatternsDirPath . "userBox.html"));
         $count++;
     }
     if ($count == 0) $result = "Сохраненных пользователей нет";
