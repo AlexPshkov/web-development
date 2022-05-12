@@ -73,5 +73,5 @@ signUpForm.onsubmit = async (e) => {
     ajax.then(result => result.json().then(jsonResult => { //Make async request
         if (jsonResult.status !== 200) modalContent.innerHTML = messageFormat.replace("%message%", jsonResult.message);
         else closeModalWindow();
-    }).catch(errorMessage => modalContent.innerHTML = messageFormat.replace("%message%", errorMessage))).catch(errorMessage => modalContent.innerHTML = messageFormat.replace("%message%", errorMessage)); //Catch exceptions
+    }).catch(() => modalContent.innerHTML = errorMessage)).catch(() => modalContent.innerHTML = errorMessage); //Catch exceptions
 };
