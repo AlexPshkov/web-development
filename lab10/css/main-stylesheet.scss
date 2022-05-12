@@ -1,0 +1,452 @@
+//DEFAULT COLORS
+$defaultColor-magenta: #EE58B6;
+$defaultColor-white: #FFFFFF;
+$defaultColor-black: #000000;
+$defaultColor-dark: #05090C;
+$defaultColor-transparent-black: rgba(0, 0, 0, 0.7);
+$defaultColor-gray-white: #C0C0C0;
+$defaultColor-gray: #999999;
+
+
+//MIXINS
+@mixin useFont($font-name : 'Montserrat', $font-weight : 700, $font-size : 31px, $line-height : 37.69px, $color : $defaultColor-black) {
+    font-family: $font-name, sans-serif;
+    font-style: normal;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color;
+}
+
+@mixin useFlex($justify-content : center, $align-items : center, $flex-direction : row) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $flex-direction;
+    flex-shrink: 0;
+}
+
+//FUNCTIONS
+@function vw($px-vw, $base-vw: 1920px) {
+    @return ($px-vw * 100vw) / $base-vw;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.color-magenta {
+    color: $defaultColor-magenta;
+}
+
+//MODAL WINDOW
+//===============================================================
+.active {
+    opacity: 1 !important;
+    z-index: 2 !important;
+    transition: all 0.5s !important;
+}
+
+.active-window {
+    @extend .active;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.modal-window {
+    display: block;
+    position: fixed;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+
+    width: 640px;
+    height: 847px;
+
+    background: #FFFFFF;
+    box-shadow: 0 16px 48px rgba(60, 0, 61, 0.48);
+    border-radius: 12px;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.2s;
+    z-index: -1;
+}
+
+.modal-background {
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.cross-button {
+    margin-left: 592px;
+    margin-top: 15px;
+}
+
+.cross-button:hover {
+    transform: rotate(15deg) scale(1.1);
+    transition: all 0.2s;
+}
+
+//===============================================================
+
+//TOP
+//===============================================================
+.top-panel {
+    @include useFlex($justify-content: space-between);
+    flex-wrap: wrap;
+    padding: vw(30px) vw(120px);
+}
+
+.top-panel__label {
+    @include useFont($font-size: vw(31px));
+    letter-spacing: -0.045em;
+}
+
+.top-buttons {
+    @include useFlex();
+    gap: vw(59px);
+}
+
+.top-buttons__button {
+    @include useFont($font-weight: 600, $font-size: vw(16px), $line-height: 103%);
+    flex-wrap: wrap;
+    padding: 1.2em 2.4em;
+    border-radius: 0.3em;
+}
+
+@media (max-width: 980px) {
+    .top-panel {
+        @include useFlex($justify-content: center, $align-items: center, $flex-direction: column);
+    }
+
+    .top-buttons {
+        @include useFlex($justify-content: center, $align-items: end, $flex-direction: column);
+        gap: vw(20px);
+
+    }
+}
+
+.top-buttons__button:hover {
+    color: $defaultColor-white;
+    background: $defaultColor-dark;
+}
+
+.top-buttons__button_black {
+    @extend .top-buttons__button;
+    background-color: $defaultColor-dark;
+    color: $defaultColor-white;
+    margin-left: 42px;
+}
+
+.top-buttons__button_black:hover {
+    background-color: $defaultColor-magenta;
+}
+
+//===============================================================
+
+
+//Landing
+//===============================================================
+.landing {
+    @include useFlex();
+    flex-wrap: wrap;
+    height: 732px;
+}
+
+.landing__content {
+    @include useFlex($flex-direction: column, $justify-content: flex-start, $align-items: flex-start);
+    flex-wrap: wrap;
+    margin-right: 35px;
+    margin-bottom: 45px;
+}
+
+.landing__label {
+    @include useFont($font-weight: 600, $font-size: 100px, $line-height: 122px);
+    width: 745px;
+    height: 139px;
+}
+
+.landing__info {
+    $normal-color: rgba(0, 0, 0, 0.7);
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 26px, $line-height: 31px, $color: $normal-color);
+    width: 545px;
+}
+
+.landing__button_black {
+    @include useFont($font-weight: 600, $font-size: 16px, $line-height: 16px, $color: $defaultColor-white);
+    margin-top: 46px;
+    padding: 18px 81px;
+    border-radius: 4.59px;
+    background: $defaultColor-dark;
+}
+
+.landing__button_black:hover {
+    background: $defaultColor-magenta;
+}
+
+.landing__man-picture {
+    display: inline-block;
+    max-width: 40.5%;
+}
+
+//===============================================================
+
+
+//Advantage panel
+//===============================================================
+.advantage-panel {
+    @include useFlex();
+    flex-wrap: wrap;
+    gap: 115px;
+    background-color: $defaultColor-black;
+    padding: 115.42px;
+}
+
+.advantage-panel > * {
+    @include useFlex($flex-direction: column);
+    text-align: center;
+    width: 337px;
+}
+
+.advantage-panel__text {
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 22px, $line-height: 26px, $color: $defaultColor-white);
+    margin-top: 20px;
+}
+
+//===============================================================
+
+
+//Main
+//===============================================================
+.mainSection {
+    margin-top: 205px;
+}
+
+.mainSection-block {
+    @include useFlex();
+    flex-wrap: wrap;
+    margin-top: 75px;
+    gap: 125px;
+}
+
+.mainSection-block__poop-picture {
+    max-width: 24%;
+}
+
+.mainSection-block__man-picture {
+    max-width: 20%;
+}
+
+.mainSection-block_reverse {
+    @extend .mainSection-block;
+    flex-wrap: wrap-reverse;
+}
+
+.mainSection-block__text-content {
+    @include useFlex($align-items: flex-start, $flex-direction: column);
+    width: 574px;
+}
+
+.mainSection-block__text-label {
+    @include useFont($font-name: 'Montserrat', $font-weight: 500, $font-size: 48px, $line-height: 61px);
+}
+
+.mainSection-block__text {
+    $normal-color: rgba(0, 0, 0, 0.7);
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 18px, $line-height: 24px, $color: $normal-color);
+    margin-top: 26px;
+}
+
+//===============================================================
+
+
+//Table
+//===============================================================
+.mainSection-table {
+    @include useFlex($flex-direction: column);
+    margin-top: 143px;
+}
+
+.table-contents {
+    @include useFlex($flex-direction: row);
+    max-width: 1135px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.mainSection-table__label {
+    @include useFont($font-weight: 500, $font-size: 48px, $line-height: 59px);
+}
+
+.table-contents__cell {
+    width: 358px;
+    height: 190px;
+    background: $defaultColor-black;
+    border-radius: 7.35723px;
+}
+
+.table-contents__image {
+    margin-top: 32px;
+    margin-left: 39px;
+}
+
+.table-contents__text {
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 18px, $line-height: 21px, $color: $defaultColor-white);
+    margin-top: 20px;
+    margin-left: 39px;
+}
+
+//===============================================================
+
+
+//Form
+//===============================================================
+.main-form {
+    display: flex;
+    gap: 53px;
+    margin-left: 59px;
+    margin-top: 52px;
+}
+
+.sign-up-form {
+    @include useFlex($flex-direction: column);
+}
+
+.sign-up-form__text-label {
+    @include useFont($font-weight: 500, $font-size: 26px, $line-height: 31px, $color: $defaultColor-black);
+    margin-bottom: 33px;
+}
+
+.sign-up-form__picture {
+    width: 307px;
+    height: 307px;
+}
+
+.text-field {
+    @include useFont($font-weight: 500, $font-size: 18px, $line-height: 22px, $color: $defaultColor-gray);
+    @include useFlex();
+    margin-bottom: 20px;
+    width: 480px;
+    height: 64px;
+    background: $defaultColor-white;
+    border: 1.35px solid $defaultColor-gray-white;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-left: 28px;
+}
+
+.selection-field {
+    @extend .text-field;
+    appearance: none;
+    background: url('../images/form/selection-arrow.svg') no-repeat right;
+    cursor: url('../images/form/cursor.svg'), auto;
+    background-position-x: 93%;
+}
+
+.checkBox-field {
+    @include useFlex();
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.checkBox-field__checkBox {
+    border: 1.34888px solid $defaultColor-gray-white;
+    width: 22px;
+    height: 22px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: $defaultColor-magenta;
+}
+
+.checkBox-field__checkBox:active {
+    background-color: $defaultColor-magenta;
+}
+
+.checkbox-field__label {
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 16px, $line-height: 22px, $color: rgba(0, 0, 0, 0.7));
+    margin-left: 7.68px;
+}
+
+.submit-button {
+    @include useFont($font-weight: 500, $font-size: 18px, $line-height: 22px, $color: $defaultColor-white);
+    @include useFlex();
+    width: 480px;
+    height: 64px;
+    background: $defaultColor-black;
+    border-radius: 5.4px;
+}
+
+.submit-button:hover {
+    border: $defaultColor-magenta;
+    background-color: $defaultColor-magenta;
+}
+
+.file-data-contents {
+    @include useFont($font-name: 'Roboto Condensed', $font-weight: 400, $font-size: 18px, $line-height: 24px, $color: $defaultColor-transparent-black);
+    margin-left: 59px;
+    margin-top: 68px;
+}
+
+//CheckBox
+//========================
+.checkBox-field__checkBox {
+    margin-left: -30px;
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+.checkBox-field__checkBox + .checkbox-field__label {
+    @include useFlex();
+}
+
+.checkBox-field__checkBox + .checkbox-field__label::before {
+    @include useFlex();
+    content: '';
+    margin-right: 7.68px;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 1.35px solid $defaultColor-gray-white;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.checkBox-field__checkBox:not(:disabled):not(:checked) + .checkbox-field__label:hover::before {
+    border-color: $defaultColor-magenta;
+}
+
+.checkBox-field__checkBox:checked + .checkbox-field__label::before {
+    border-color: $defaultColor-magenta;
+    background-color: $defaultColor-magenta;
+    background-image: url("../images/form/checkbox-checked-arrow.svg");
+}
+
+//========================
+
+//TODO styles for dropdown list
+
+//===============================================================
+
+
+//Footer
+//===============================================================
+.footer-panel {
+    @include useFlex();
+    background: $defaultColor-black;
+    margin-top: 197px;
+    height: 108px;
+}
+
+.footer-panel__label {
+    @include useFont($font-weight: 700, $font-size: 30.8354px, $line-height: 38px, $color: $defaultColor-white);
+    letter-spacing: -0.045em;
+}
+
+//===============================================================
+

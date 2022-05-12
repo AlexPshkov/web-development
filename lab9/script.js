@@ -8,7 +8,9 @@ function isPrimeNumber(number) {
         number.forEach(num => isPrimeNumber(num));
         return;
     }
+    if (typeof number !== "number") return console.log("Not a number");
     if (number % 2 === 0 && number > 2) return console.log(number + " is not prime number");
+    if (number <= 0 ) return console.log(number + " is not prime number");
     for (let i = 3; i <= Math.sqrt(number); i += 2) {
         if (number % i === 0) return console.log(number + " is not prime number");
     }
@@ -28,7 +30,7 @@ const numbersRegExp = new RegExp(/([^ (]?\d+)\s+.([\d]*)/g);
  * Get last index of RegEx in string
  * @param stringExpression
  * @param regEx
- * @returns {*}
+ * @returns {}
  */
 function getLastIndex(stringExpression, regEx) {
     const lastOperationTypeMatch = stringExpression.match(regEx).pop();
@@ -82,11 +84,11 @@ function calc(expression, checked = false) {
             break;
     }
 
-    const fullStr = stringExpression.substring(lastOperationTypePosition, stringExpression.indexOf(sliceExpressionMatch));
+    const fullStr = stringExpression.substring(lastOperationTypePosition, stringExpression.indexOf(sliceExpressionMatch, lastOperationTypePosition));
     const formattedExpression = stringExpression.replaceAll(fullStr + sliceExpressionMatch, result);
 
     return formattedExpression.match(operationTypeRegExp) ? calc(formattedExpression, true) : formattedExpression;
 }
 
 
-// console.log(calc('*(- 5 6) 7'));
+console.log(calc('+ 5 5 j'));
