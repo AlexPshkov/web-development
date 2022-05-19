@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Don`t do it</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto+Condensed&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/main-stylesheet.min.css">
+
+</head>
+<body>
+<div class="modal-background close-button"></div>
+<div class="accept-data-button" id="accept-data-button">Получить данные</div>
+<div class="accepted-data" id="accepted-data-content"></div>
+
+<script type="text/javascript">
+    const acceptedDataContent = document.getElementById("accepted-data-content");
+    const acceptButton = document.getElementById("accept-data-button");
+
+
+    acceptButton.addEventListener('click', e => {
+        fetch('./fileHandler.php', {
+            method: 'GET'
+        }).then(result => result.json().then(jsonResult => { //Make async request
+            acceptedDataContent.innerHTML = jsonResult.content;
+        }).catch(errorMessage => acceptedDataContent.innerHTML = errorMessage)).catch(errorMessage => acceptedDataContent.innerHTML = errorMessage); //Catch exceptions
+    });
+</script>
+</body>
+</html>
